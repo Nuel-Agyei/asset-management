@@ -9,7 +9,10 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable=['user_id', 'name', 'description'];
+    protected $fillable=[
+        'user_id', 'name', 'details','date', 'cost', 'category',
+        'condition', 'state', 'branch_id', 'images'
+    ];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');

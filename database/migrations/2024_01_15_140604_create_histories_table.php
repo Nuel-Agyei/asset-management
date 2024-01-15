@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('details');
             $table->string('date');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -21,7 +21,9 @@ class ItemResource extends Resource
 {
     protected static ?string $model = Item::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +36,7 @@ class ItemResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Select::make('branch_id')
-                    ->label('Label')
+                    ->label('Branch')
                     ->required()
                     ->relationship('branch', 'name'),
                 DatePicker::make('date'),
@@ -57,13 +59,27 @@ class ItemResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
+                    ->label('User')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('branch_id')
+                    ->label('Branch')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('description')
+                Tables\Columns\TextColumn::make('details')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('date')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('cost')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('category')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('state')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('condition')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('images')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
