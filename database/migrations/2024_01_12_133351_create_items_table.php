@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->string('branch_id');
+            $table->string('branch_id')->nullable();
             $table->string('description');
             $table->timestamps();
         });

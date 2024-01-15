@@ -4,9 +4,9 @@ namespace App\Filament\Resources\BranchResource\Pages;
 
 use App\Filament\Resources\BranchResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Pages\ManageRecords;
 
-class ListBranches extends ListRecords
+class ManageBranches extends ManageRecords
 {
     protected static string $resource = BranchResource::class;
 
