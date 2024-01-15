@@ -13,4 +13,7 @@ class History extends Model
         'item_id', 'state', 'details', 'date', 'image'
     ];
 
+    public function item(){
+        return $this->belongsTo(Item::class, 'id');
+    }
 }

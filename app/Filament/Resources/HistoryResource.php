@@ -6,9 +6,14 @@ use App\Filament\Resources\HistoryResource\Pages;
 use App\Filament\Resources\HistoryResource\RelationManagers;
 use App\Models\History;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -23,7 +28,15 @@ class HistoryResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('item_id')
+                    ->required()
+                    ->relationship('item', 'name'),
+                TextInput::make('state')
+                    ->required(),
+                TextInput::make('details'),
+                DatePicker::make('date'),
+                FileUpload::make('image'),
+
             ]);
     }
 
@@ -31,7 +44,11 @@ class HistoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('item'),
+                TextColumn::make('state'),
+                TextColumn::make('details'),
+                TextColumn::make('date'),
+                TextColumn::make('image'),
             ])
             ->filters([
                 //
