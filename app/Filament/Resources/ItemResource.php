@@ -6,6 +6,10 @@ use App\Filament\Resources\ItemResource\Pages;
 use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,18 +27,28 @@ class ItemResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')
+                Select::make('user_id')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('branch_id')
+                    ->relationship('user', 'name'),
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
+                Select::make('branch_id')
+                    ->label('Label')
+                    ->required()
+                    ->relationship('branch', 'name'),
+                DatePicker::make('date'),
+                TextInput::make('cost')
+                    ->required(),
+                TextInput::make('category'),
+                TextInput::make('condition')
+                    ->required(),
+                TextInput::make('details')
                     ->required()
                     ->maxLength(255),
+                TextInput::make('state'),
+                FileUpload::make('images')
+                    ->multiple(),
             ]);
     }
 

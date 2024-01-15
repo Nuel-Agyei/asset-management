@@ -15,8 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('name');
+            $table->string('images');
+            $table->string('date');
+            $table->string('cost')->nullable();
+            $table->string('state');
+            $table->string('category');
+            $table->string('condition');
             $table->string('branch_id')->nullable();
-            $table->string('description');
+            $table->string('details');
             $table->timestamps();
         });
     }

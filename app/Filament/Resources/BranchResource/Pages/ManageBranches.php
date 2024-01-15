@@ -15,5 +15,11 @@ class ManageBranches extends ManageRecords
         return [
             Actions\CreateAction::make(),
         ];
+
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
 }
