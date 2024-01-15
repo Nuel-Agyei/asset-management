@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('item_id')->constrained();
+            $table->string('state');
+            $table->string('details');
+            $table->string('date');
+            $table->string('image');
             $table->timestamps();
         });
     }
