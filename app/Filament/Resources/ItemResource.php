@@ -9,10 +9,12 @@ use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -49,7 +51,7 @@ class ItemResource extends Resource
                     ->required()
                     ->maxLength(255),
                 TextInput::make('state'),
-                FileUpload::make('images')
+                SpatieMediaLibraryFileUpload::make('images')
                     ->multiple(),
             ]);
     }
@@ -64,7 +66,7 @@ class ItemResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('branch_id')
+                Tables\Columns\TextColumn::make('branch.name')
                     ->label('Branch')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('details')
@@ -79,7 +81,8 @@ class ItemResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('condition')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('images')
+                SpatieMediaLibraryImageColumn::make('avatar')::make('images')
+                    ->circular()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

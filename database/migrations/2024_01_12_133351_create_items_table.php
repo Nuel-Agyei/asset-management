@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('images')->nullable();
-            $table->string('date')->nullable();
+            $table->date('date')->nullable();
             $table->string('cost');
             $table->string('state');
             $table->string('category');
