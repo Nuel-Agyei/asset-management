@@ -14,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -81,7 +82,7 @@ class ItemResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('condition')
                     ->searchable(),
-                SpatieMediaLibraryImageColumn::make('avatar')::make('images')
+                SpatieMediaLibraryImageColumn::make('images')
                     ->circular()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

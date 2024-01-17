@@ -14,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -53,7 +54,7 @@ class HistoryResource extends Resource
                 TextColumn::make('state'),
                 TextColumn::make('details'),
                 TextColumn::make('date'),
-                TextColumn::make('image'),
+                SpatieMediaLibraryImageColumn::make('image'),
             ])
             ->filters([
                 //
