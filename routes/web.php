@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DetailsController;
+use App\Livewire\Details;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/display', DetailsController::class);
+Route::get('/details', Details::class);
