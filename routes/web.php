@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\DetailsController;
-use App\Livewire\Details;
+use App\Livewire\Items;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/item', Details::class);
+Route::get('/item', Items::class);
+// Route::get('/item-details', Item::class);
