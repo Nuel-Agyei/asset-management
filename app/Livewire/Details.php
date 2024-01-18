@@ -10,6 +10,6 @@ class Details extends Component
     public function render()
     {
         $item = Item::all();
-        return view('livewire.details', compact('item'));
+        return view('livewire.item', compact('item'));
     }
 }

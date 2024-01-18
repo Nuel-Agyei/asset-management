@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/details', Details::class);
+Route::get('/item', Details::class);
