@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Details;
 use App\Livewire\Items;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/item', Items::class);
-// Route::get('/item-details', Item::class);
+Route::get('/details/{id}', Details::class);
