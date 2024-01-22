@@ -1,24 +1,24 @@
-<div>
-    <p>Hey there people</p>
-    <div class="bg-white">
-        {{-- <h2 class="">ITems</h2> --}}
-        <div class="flex mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            @foreach ($item as $item)
-                <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 shadow-md">
-                    <a  href="{{url('details', $item->id)}}" class="group">
-                        <div class="shadow-lg aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                            <img src="{{Storage::url($item->images)}}" alt="{{ $item->condition }}"
-                                class="h-full w-full object-cover object-center group-hover:opacity-75">
-                        </div>
-                        <h3 class="mt-4 text-sm text-gray-700">{{ $item->name }}</h3>
-                        <p class="mt-1 text-lg font-medium text-gray-900">{{ $item->state }}</p>
-                    </a>
+{{-- $item->id
+<a   class="group"> --}}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mx-4 my-8">
+    <!-- Card 1 -->
+    @foreach ($item as $item)
+        <div class="bg-white p-6 rounded-md shadow-md transition-transform transform hover:scale-105">
+            <img src="{{$item->images}}" alt="Card Image" class="w-full h-32 object-cover mb-4 rounded-md">
+            <h3 class="text-xl font-semibold mb-2">{{$item->name}}</h3>
+            <p class="text-gray-700">{{$item->name}}</p>
+            <a href="{{url('details', $item->id)}}">
+            <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Learn
+                More</button>
+            </a>
 
-
-                    <!-- More products... -->
-                </div>
-            @endforeach
         </div>
-    </div>
+    @endforeach
+
+
+    <!-- Card 2 -->
+
+
+    <!-- Repeat similar structure for more cards -->
 
 </div>
