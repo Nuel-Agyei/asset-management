@@ -23,7 +23,7 @@
         <p class="mt-4 text-gray-700">{{$data->details}}</p>
 
         <div class="flex justify-between items-center mt-6">
-          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Add to Cart</button>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Fix Product</button>
           <div class="flex items-center space-x-2">
             <span class="text-gray-600">Qty:</span>
             <input type="number" class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-500">
