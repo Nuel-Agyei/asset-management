@@ -17,7 +17,7 @@
             <h2 class="text-2xl font-semibold">{{ $data->name }}</h2>
             <span class="text-gray-600">GH₵ {{ $data->cost }}</span>
         </div>
-        <img src="{{ asset($data->images) }}" alt="Product Image" class="w-full h-64 object-cover product-image">
+        <img src="{{ $data->images}}" alt="Product Image" class="w-full h-64 object-cover product-image">
 
         <p class="mt-4 text-gray-700">{{ $data->details }}</p>
 
