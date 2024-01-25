@@ -56,7 +56,9 @@ class HistoryResource extends Resource
                 TextColumn::make('state'),
                 TextColumn::make('details'),
                 TextColumn::make('date'),
-                SpatieMediaLibraryImageColumn::make('image'),
+                SpatieMediaLibraryImageColumn::make('image')
+                    ->circular()
+                    ->stacked(),
             ])
             ->filters([
                 //
