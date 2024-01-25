@@ -12,6 +12,7 @@ class Item extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+
     protected $fillable=[
         'user_id', 'name', 'details','date', 'cost', 'category',
         'condition', 'state', 'branch_id', 'images'

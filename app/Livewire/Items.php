@@ -4,11 +4,9 @@ namespace App\Livewire;
 
 use App\Models\Item;
 use Livewire\Component;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Items extends Component
 {
-    use InteractsWithMedia;
     public function render()
     {
 

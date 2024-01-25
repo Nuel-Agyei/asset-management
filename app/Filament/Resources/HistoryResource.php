@@ -50,7 +50,9 @@ class HistoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('item'),
+                TextColumn::make('item.name')
+                    ->sortable()
+                    ->label('Item'),
                 TextColumn::make('state'),
                 TextColumn::make('details'),
                 TextColumn::make('date'),
