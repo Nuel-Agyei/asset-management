@@ -71,13 +71,6 @@ class HistoryResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ])
-            ->emptyStateActions([
-                Action::make('create')
-                    ->label('Create post')
-                    ->url(route('posts.create'))
-                    ->icon('heroicon-m-plus')
-                    ->button(),
                 ]),
 
             ]);
