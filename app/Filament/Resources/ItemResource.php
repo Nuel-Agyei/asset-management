@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ItemResource\Pages;
 use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -115,6 +116,13 @@ class ItemResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                ])
+                ->emptyStateActions([
+                    Action::make('create')
+                        ->label('Create post')
+                        ->url(route('posts.create'))
+                        ->icon('heroicon-m-plus')
+                        ->button(),
                 ]),
             ]);
     }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\HistoryResource\Pages;
 use App\Filament\Resources\HistoryResource\RelationManagers;
 use App\Models\History;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -70,7 +71,15 @@ class HistoryResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                ])
+            ->emptyStateActions([
+                Action::make('create')
+                    ->label('Create post')
+                    ->url(route('posts.create'))
+                    ->icon('heroicon-m-plus')
+                    ->button(),
                 ]),
+
             ]);
     }
 
