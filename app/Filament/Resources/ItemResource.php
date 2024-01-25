@@ -94,6 +94,7 @@ class ItemResource extends Resource
                 SpatieMediaLibraryImageColumn::make('images')
                     ->circular()
                     ->sortable()
+                    ->stacked()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
